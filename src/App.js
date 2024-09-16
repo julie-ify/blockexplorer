@@ -1,7 +1,8 @@
 import { Route, Switch } from 'react-router-dom';
-import BlockList from './BlockList';
-import Block from './Block';
-import Transaction from './Transaction';
+import BlockList from './pages/BlockList';
+import Block from './pages/Block';
+import Account from './pages/Account';
+import Transaction from './pages/Transaction';
 import './App.css';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
 				<Route exact path="/" component={BlockList} />
 				<Route path="/block/:block" component={Block} />
 				<Route path="/tx/:hash" component={Transaction} />
+				<Route path="/account" component={Account} />
 			</Switch>
 		</main>
 	);

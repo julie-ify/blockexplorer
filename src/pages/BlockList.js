@@ -1,8 +1,8 @@
 import { Utils } from 'alchemy-sdk';
-import alchemy from './myUtils.js/config';
+import alchemy from '../myUtils.js/config';
 import { useEffect, useState } from 'react';
-import { formatValue } from './myUtils.js/formatValue';
-import { getLast5Blocks } from './myUtils.js/lastFiveBlocks';
+import { formatValue } from '../myUtils.js/formatValue';
+import { getLast5Blocks } from '../myUtils.js/lastFiveBlocks';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import TimeAgo from 'react-timeago';
 
@@ -19,7 +19,7 @@ function BlockList() {
 
 	return (
 		<main className="container">
-			{blockData === null && <div>loading...</div>}
+			{blockData.length === 0 && <div>loading...</div>}
 			{blockData.length > 0 && (
 				<div className="wrapper">
 					<ul>
