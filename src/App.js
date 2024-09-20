@@ -4,6 +4,7 @@ import Block from './pages/Block';
 import Account from './pages/Account';
 import Transaction from './pages/Transaction';
 import './App.css';
+import NFT from './pages/NFT';
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
 				<Route path="/block/:block" component={Block} />
 				<Route path="/tx/:hash" component={Transaction} />
 				<Route path="/account" component={Account} />
+				<Route path="/nft" component={NFT} />
 			</Switch>
 		</main>
 	);

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Utils } from 'alchemy-sdk';
 import alchemy from '../myUtils.js/config';
 import { Link, useLocation } from 'react-router-dom/cjs/react-router-dom';
-import {formatValue} from '../myUtils.js/formatValue'
+import { formatValue } from '../myUtils.js/formatValue';
 import TimeAgo from 'react-timeago';
 
 function Block() {

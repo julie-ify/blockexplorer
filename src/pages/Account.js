@@ -4,10 +4,12 @@ import Button from 'react-bootstrap/Button';
 import { formatValue } from '../myUtils.js/formatValue';
 import { Utils } from 'alchemy-sdk';
 import alchemy from '../myUtils.js/config';
+import getTransfersReceived from '../myUtils.js/TransactionsReceived';
 
 function Account() {
 	const [account, setAccount] = useState(null);
 	const [balance, setBalance] = useState(null);
+	const [log, setLog] = useState(null);
 
 	return (
 		<section className="container">
@@ -17,6 +19,9 @@ function Account() {
 					const hexValue = await alchemy.core.getBalance(account.toString());
 					const value = formatValue(hexValue._hex, Utils);
 					setBalance(value);
+
+					const _log = await getTransfersReceived(account.toString());
+					setLog(_log);
 				}}
 			>
 				<Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -32,10 +37,19 @@ function Account() {
 				</Button>
 			</Form>
 			{balance !== null && (
-				<div className="block-flex">
-					<p>Account Balance:</p>
-					<p>{balance} ETH</p>
-				</div>
+				<>
+					<div className="block-flex">
+						<p>Account Balance:</p>
+						<p>{balance} ETH</p>
+					</div>
+
+					<div className="block-flex">
+						<p>
+							Number of txns received by this account since 100,000 blocks ago
+						</p>
+						{log != null && <p>{log.length}</p>}
+					</div>
+				</>
 			)}
 		</section>
 	);
